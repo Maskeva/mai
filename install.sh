@@ -143,6 +143,8 @@ btrfs subvolume list /mnt
 # ========== System Installation Section ==========
 info "Starting system installation to disk..."
 
+echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' | sudo tee /etc/pacman.d/mirrorlist
+
 # Step 1: Update keyring
 info "Updating keyring..."
 pacman -Sy --noconfirm archlinux-keyring
@@ -257,3 +259,4 @@ info "Please confirm all steps completed successfully, then reboot using:"
 info "umount -R /mnt"
 info "reboot"
 info "After reboot, you can log in using the created user ($username)"
+
