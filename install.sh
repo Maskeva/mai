@@ -154,6 +154,10 @@ info "Installing base system packages, build tools, kernel and firmware..."
 pacstrap /mnt base base-devel linux linux-firmware \
           btrfs-progs nano sudo networkmanager
 
+# Install AMD microcode
+info "Installing AMD microcode..."
+arch-chroot /mnt pacman -S --noconfirm amd-ucode
+
 # Create swap file using Btrfs method
 info "Creating 4GB swap file using Btrfs method..."
 btrfs filesystem mkswapfile --size 4g --uuid clear /mnt/swap/swapfile
@@ -191,10 +195,6 @@ arch-chroot /mnt locale-gen
 # Enable time synchronization service
 info "Enabling time synchronization service..."
 arch-chroot /mnt systemctl enable systemd-timesyncd.service
-
-# Install AMD microcode
-info "Installing AMD microcode..."
-arch-chroot /mnt pacman -S --noconfirm amd-ucode
 
 # Set root password
 info "Setting root password..."
@@ -259,4 +259,5 @@ info "Please confirm all steps completed successfully, then reboot using:"
 info "umount -R /mnt"
 info "reboot"
 info "After reboot, you can log in using the created user ($username)"
+
 
