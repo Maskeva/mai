@@ -222,9 +222,9 @@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootlo
 info "Completely disabling watchdog..."
 sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"/GRUB_CMDLINE_LINUX_DEFAULT="\1 nowatchdog"/' /mnt/etc/default/grub
 
-# Disable watchdog system service
-info "Disabling watchdog system service..."
-arch-chroot /mnt bash -c 'systemctl mask watchdog.service 2>/dev/null || true'
+# Enable NetworkManager.service
+info "Enable NetworkManager system service..."
+arch-chroot /mnt bash -c 'systemctl enable NetworkManager'
 
 # Generate GRUB configuration
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
