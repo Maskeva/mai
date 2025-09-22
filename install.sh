@@ -123,7 +123,7 @@ mount -o subvol=@home,compress=zstd $part2 /mnt/home
 # Create and mount swap subvolume (no compression)
 info "Creating and mounting swap subvolume..."
 mkdir -p /mnt/swap
-mount -o subvol=@swap,noatime,nodiratime $part2 /mnt/swap
+mount -o subvol=@swap,compress=zstd $part2 /mnt/swap
 
 # Create and mount EFI partition
 info "Mounting EFI system partition..."
