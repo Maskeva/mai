@@ -12,8 +12,6 @@ error_handler() {
 # 设置错误捕获
 trap error_handler ERR
 
-# 设置官方源为清华源
-echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' | sudo tee /etc/pacman.d/mirrorlist
 
 # 添加archlinuxcn清华源
 echo '[archlinuxcn]' | sudo tee -a /etc/pacman.conf
@@ -63,11 +61,6 @@ sudo snapper -c root set-config "TIMELINE_LIMIT_WEEKLY=3"      # 禁用每周快
 sudo snapper -c root set-config "TIMELINE_LIMIT_MONTHLY=0"    # 保留最近12个月的月度快照
 sudo snapper -c root set-config "TIMELINE_LIMIT_QUARTERLY=0"   # 禁用季度快照
 sudo snapper -c root set-config "TIMELINE_LIMIT_YEARLY=0"      # 禁用年度快照
-
-
-# 创建初始快照
-echo "> 创建初始系统快照..."
-sudo snapper -c create --description "初始系统快照 - 安装后"
 
 
 echo "安装完成！"
