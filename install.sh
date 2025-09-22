@@ -152,11 +152,11 @@ pacman -Sy --noconfirm archlinux-keyring
 # Step 2: Install base packages, build tools, kernel and firmware
 info "Installing base system packages, build tools, kernel and firmware..."
 pacstrap /mnt base base-devel linux linux-firmware \
-          btrfs-progs zsh nano sudo networkmanager
+          btrfs-progs
 
 # Install AMD microcode
 info "Installing AMD microcode..."
-arch-chroot /mnt pacman -S --noconfirm amd-ucode
+arch-chroot /mnt pacman -S --noconfirm amd-ucode zsh nano sudo networkmanager
 
 # Create swap file using Btrfs method
 info "Creating 4GB swap file using Btrfs method..."
