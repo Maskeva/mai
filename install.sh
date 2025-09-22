@@ -152,7 +152,7 @@ pacman -Sy --noconfirm archlinux-keyring
 # Step 2: Install base packages, build tools, kernel and firmware
 info "Installing base system packages, build tools, kernel and firmware..."
 pacstrap /mnt base base-devel linux linux-firmware \
-          btrfs-progs nano sudo networkmanager
+          btrfs-progs zsh nano sudo networkmanager
 
 # Install AMD microcode
 info "Installing AMD microcode..."
