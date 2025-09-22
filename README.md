@@ -1,0 +1,2 @@
+# myarchinstall
+test
