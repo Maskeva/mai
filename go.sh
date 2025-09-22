@@ -25,14 +25,12 @@ sudo pacman -Sy archlinuxcn-keyring
 # 安装所有软件包（确保所有包在官方或archlinuxcn库中可用）
 sudo pacman -S ark bluez bluez-utils dolphin dragon elisa fastfetch \
 fcitx5 fcitx5-chinese-addons ghostty gwenview kate kcalc kfind kscreen nano \
-noto-fonts-cjk noto-fonts-emoji nvidia-dkms plasma-applets-weather-widget-3 \
+noto-fonts-cjk noto-fonts-emoji nvidia-dkms plasma-desktop plasma-applets-weather-widget-3 \
 plasma-firewall plasma-nm plasma-pa sddm sddm-kcm spectacle throne \
 snapper snap-pac libva libva-nvidia-driver starship \
 pipewire pipewire-pulse pipewire-alsa pipewire-jack wireplumber alsa-utils \
 ttf-jetbrains-mono-nerd zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting
 
-# 设置ZSH为默认Shell
-sudo chsh -s /bin/zsh $USER
 
 # 在ZSH中启用Starship
 echo 'eval "$(starship init zsh)"' >> ~/.zshrc
