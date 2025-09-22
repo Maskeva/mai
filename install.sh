@@ -224,7 +224,7 @@ sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"/GRUB_CMDLINE_LINUX_DEFAULT="\1 now
 
 # Enable NetworkManager.service
 info "Enable NetworkManager system service..."
-arch-chroot /mnt bash -c 'systemctl enable NetworkManager'
+arch-chroot /mnt systemctl enable NetworkManager
 
 # Generate GRUB configuration
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
