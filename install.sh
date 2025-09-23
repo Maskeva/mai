@@ -223,7 +223,7 @@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootlo
 
 # Completely disable watchdog - Add nowatchdog parameter to GRUB config
 info "Completely disabling watchdog..."
-sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"/GRUB_CMDLINE_LINUX_DEFAULT="\1 nowatchdog"/' /mnt/etc/default/grub
+sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"/GRUB_CMDLINE_LINUX_DEFAULT="\1 nowatchdog modprobe.blacklist=sp5100_tco"/' /mnt/etc/default/grub
 
 # Enable NetworkManager.service
 info "Enable NetworkManager system service..."
