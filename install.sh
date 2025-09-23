@@ -238,9 +238,6 @@ info "EFI boot entry created with bootloader ID: Cutedog"
 info "Watchdog completely disabled (kernel parameter and system service)"
 info "GRUB configuration file generated: /boot/grub/grub.cfg"
 
-# Switch to newly installed system
-info "Switching to new system environment..."
-arch-chroot /mnt /bin/bash <<EOF
 echo "Successfully switched to new system environment!"
 echo "Hostname set to: $hostname"
 echo "Timezone set to: Asia/Shanghai (UTC+8)"
@@ -262,5 +259,6 @@ info "Please confirm all steps completed successfully, then reboot using:"
 info "umount -R /mnt"
 info "reboot"
 info "After reboot, you can log in using the created user ($username)"
+
 
 
