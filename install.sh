@@ -110,6 +110,11 @@ info "Creating Btrfs subvolumes..."
 btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@home
 btrfs subvolume create /mnt/@swap
+btrfs subvolume create /mnt/@opt
+btrfs subvolume create /mnt/@srv
+btrfs subvolume create /mnt/@tmp
+btrfs subvolume create /mnt/@var
+btrfs subvolume create /mnt/@usr_local
 
 # Unmount to remount subvolumes
 umount /mnt
@@ -124,6 +129,18 @@ mount -o subvol=@home,compress=zstd $part2 /mnt/home
 info "Creating and mounting swap subvolume..."
 mkdir -p /mnt/swap
 mount -o subvol=@swap,compress=zstd $part2 /mnt/swap
+
+# snapper subvolume
+mkdir -p /mnt/opt
+mount -o subvol=@opt,compress=zstd $part2 /mnt/opt
+mkdir -p /mnt/srv
+mount -o subvol=@srv,compress=zstd $part2 /mnt/srv
+mkdir -p /mnt/tmp
+mount -o subvol=@tmp,compress=zstd $part2 /mnt/tmp
+mkdir -p /mnt/var
+mount -o subvol=@var,compress=zstd $part2 /mnt/var
+mkdir -p /mnt/usr/local
+mount -o subvol=@usr_local,compress=zstd $part2 /mnt/usr/local
 
 # Create and mount EFI partition
 info "Mounting EFI system partition..."
