@@ -27,7 +27,7 @@ nvidia-dkms plasma-desktop plasma-applets-weather-widget-3 elisa fastfetch \
 plasma-firewall plasma-nm plasma-pa plasma-systemmonitor sddm sddm-kcm spectacle throne \
 libva libva-utils libva-nvidia-driver ttf-jetbrains-mono-nerd starship dolphin dragon \
 pipewire pipewire-pulse pipewire-alsa pipewire-jack wireplumber \
-zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting
+zsh-autosuggestions zsh-completions zsh-syntax-highlighting
 
 
 # 在ZSH中启用Starship
