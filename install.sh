@@ -251,7 +251,7 @@ echo "GRUB bootloader installed and configured (bootloader ID: Cutedog)"
 echo "Watchdog completely disabled"
 echo "Current working directory: \$(pwd)"
 echo "You can continue with system configuration commands in this environment"
-EOF
+
 
 # Final instructions
 info "Arch Linux installation script execution completed!"
