@@ -168,7 +168,7 @@ pacman -Sy --noconfirm archlinux-keyring
 
 # Step 2: Install base packages, build tools, kernel and firmware
 info "Installing base system packages, build tools, kernel and firmware..."
-pacstrap /mnt base base-devel linux-zen linux-firmware
+pacstrap /mnt base base-devel linux linux-firmware
 
 # Install AMD microcode and btrfs-progs
 pacstrap /mnt amd-ucode btrfs-progs
@@ -191,7 +191,7 @@ cat /mnt/etc/fstab
 
 # Install APP
 info "Installing APP"
-arch-chroot /mnt pacman -S zsh nano sudo networkmanager linux-zen-headers
+arch-chroot /mnt pacman -S zsh nano sudo networkmanager
 
 # Set hostname
 read -p "Enter hostname: " hostname
@@ -267,8 +267,7 @@ echo "sudo privileges configured"
 echo "GRUB bootloader installed and configured (bootloader ID: Cutedog)"
 echo "Watchdog completely disabled"
 echo "Current working directory: \$(pwd)"
-echo "You can continue with system configuration commands in this environment"
-
+echo "You can continue with system configuration commands in this environment"
 
 # Final instructions
 info "Arch Linux installation script execution completed!"
@@ -276,7 +275,6 @@ info "Please confirm all steps completed successfully, then reboot using:"
 info "umount -R /mnt"
 info "reboot"
 info "After reboot, you can log in using the created user ($username)"
-
 
 
 
