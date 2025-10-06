@@ -1,2 +1,2 @@
 # myarchinstall
-test
+ArchLinux installation script for personal use
