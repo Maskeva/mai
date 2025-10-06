@@ -21,7 +21,7 @@ echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch' | sudo te
 sudo pacman -Sy archlinuxcn-keyring
 
 # 安装所有软件包（确保所有包在官方或archlinuxcn库中可用）
-sudo pacman -S noto-fonts-cjk noto-fonts-emoji linux-headers ark bluez bluez-utils \
+sudo pacman -S noto-fonts-cjk noto-fonts-emoji ark bluez bluez-utils \
 fcitx5-im fcitx5-chinese-addons ghostty gwenview kate kcalc kfind kscreen \
 nvidia-dkms plasma-desktop plasma-applets-weather-widget-3 elisa fastfetch \
 plasma-firewall plasma-nm plasma-pa plasma-systemmonitor sddm sddm-kcm spectacle throne \
