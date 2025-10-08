@@ -166,12 +166,52 @@ echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch' | 
 info "Updating keyring..."
 pacman -Sy --noconfirm archlinux-keyring
 
+# Kernel selection
+question "Select kernel to install:"
+echo "1. linux (standard)"
+echo "2. linux-zen (optimized for desktop)"
+read -p "Enter your choice (1-2): " kernel_choice
+
+case $kernel_choice in
+    1)
+        kernel="linux"
+        headers="linux-headers"
+        ;;
+    2)
+        kernel="linux-zen"
+        headers="linux-zen-headers"
+        ;;
+    *)
+        error "Invalid kernel selection"
+        ;;
+esac
+
+# Microcode selection
+question "Select CPU microcode:"
+echo "1. amd-ucode (AMD processors)"
+echo "2. intel-ucode (Intel processors)"
+read -p "Enter your choice (1-2): " ucode_choice
+
+case $ucode_choice in
+    1)
+        microcode="amd-ucode"
+        ;;
+    2)
+        microcode="intel-ucode"
+        ;;
+    *)
+        error "Invalid microcode selection"
+        ;;
+esac
+
+info "Selected: Kernel=$kernel, Microcode=$microcode"
+
 # Step 2: Install base packages, build tools, kernel and firmware
 info "Installing base system packages, build tools, kernel and firmware..."
-pacstrap /mnt base base-devel linux-zen linux-firmware
+pacstrap /mnt base base-devel $kernel linux-firmware
 
-# Install AMD microcode and btrfs-progs
-pacstrap /mnt amd-ucode btrfs-progs
+# Install selected microcode and btrfs-progs
+pacstrap /mnt $microcode btrfs-progs
 
 # Create swap file using Btrfs method
 info "Creating 4GB swap file using Btrfs method..."
@@ -189,9 +229,9 @@ genfstab -U /mnt > /mnt/etc/fstab
 info "Checking generated fstab file:"
 cat /mnt/etc/fstab
 
-# Install APP
+# Install APP with selected kernel headers
 info "Installing APP"
-arch-chroot /mnt pacman -S zsh nano sudo networkmanager linux-zen-headers
+arch-chroot /mnt pacman -S zsh nano sudo networkmanager $headers
 
 # Set hostname
 read -p "Enter hostname: " hostname
