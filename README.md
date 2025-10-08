@@ -1,6 +1,9 @@
 # my Archlinux installation script
 For Private use
 
+```bash
+[https://tinyurl.com/gitmai](https://tinyurl.com/gitmai)
+
 ## Star History
 
  <picture>
