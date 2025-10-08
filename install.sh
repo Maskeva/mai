@@ -268,6 +268,10 @@ arch-chroot /mnt locale-gen
 info "Setting root password..."
 arch-chroot /mnt passwd
 
+# change root user default shell to zsh
+info "Changing root user default shell to zsh..."
+arch-chroot /mnt chsh -s /bin/zsh root
+
 # Create regular user
 read -p "Enter username to create: " username
 arch-chroot /mnt useradd -m -G wheel -s /bin/zsh "$username"

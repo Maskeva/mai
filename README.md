@@ -1,5 +1,5 @@
-# myarchinstall
-ArchLinux installation script for private use
+# my Archlinux installation script
+For Private use
 
 ## Star History
 
