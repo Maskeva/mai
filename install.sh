@@ -167,42 +167,50 @@ info "Updating keyring..."
 pacman -Sy --noconfirm archlinux-keyring
 
 # Kernel selection
-question "Select kernel to install:"
-echo "1. linux (standard)"
-echo "2. linux-zen (optimized for desktop)"
-read -p "Enter your choice (1-2): " kernel_choice
+while true; do
+    question "Select kernel to install:"
+    echo "1. linux (standard)"
+    echo "2. linux-zen (optimized for desktop)"
+    read -p "Enter your choice (1-2): " kernel_choice
 
-case $kernel_choice in
-    1)
-        kernel="linux"
-        headers="linux-headers"
-        ;;
-    2)
-        kernel="linux-zen"
-        headers="linux-zen-headers"
-        ;;
-    *)
-        error "Invalid kernel selection"
-        ;;
-esac
+    case $kernel_choice in
+        1)
+            kernel="linux"
+            headers="linux-headers"
+            break
+            ;;
+        2)
+            kernel="linux-zen"
+            headers="linux-zen-headers"
+            break
+            ;;
+        *)
+            error "Invalid kernel selection. Please enter '1' or '2'."
+            ;;
+    esac
+done
 
 # Microcode selection
-question "Select CPU microcode:"
-echo "1. amd-ucode (AMD processors)"
-echo "2. intel-ucode (Intel processors)"
-read -p "Enter your choice (1-2): " ucode_choice
+while true; do
+    question "Select CPU microcode:"
+    echo "1. amd-ucode (AMD processors)"
+    echo "2. intel-ucode (Intel processors)"
+    read -p "Enter your choice (1-2): " ucode_choice
 
-case $ucode_choice in
-    1)
-        microcode="amd-ucode"
-        ;;
-    2)
-        microcode="intel-ucode"
-        ;;
-    *)
-        error "Invalid microcode selection"
-        ;;
-esac
+    case $ucode_choice in
+        1)
+            microcode="amd-ucode"
+            break
+            ;;
+        2)
+            microcode="intel-ucode"
+            break
+            ;;
+        *)
+            error "Invalid microcode selection. Please enter '1' or '2'."
+            ;;
+    esac
+done
 
 info "Selected: Kernel=$kernel, Microcode=$microcode"
 
