@@ -1,7 +1,7 @@
 # my Archlinux installation script
 For Private use
 
-```bash
+```text
 [https://tinyurl.com/gitmai](https://tinyurl.com/gitmai)
 ```
 
