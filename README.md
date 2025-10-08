@@ -2,7 +2,7 @@
 For Private use
 
 ```text
-[https://tinyurl.com/gitmai](https://tinyurl.com/gitmai)
+https://tinyurl.com/gitmai
 ```
 
 ## Star History
