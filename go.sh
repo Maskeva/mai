@@ -63,5 +63,5 @@ echo 'XMODIFIERS=@im=fcitx' | sudo tee -a /etc/environment
 # sudo snapper -c root set-config "TIMELINE_LIMIT_YEARLY=0"      # 禁用年度快照
 
 
-echo "Done！"
+echo "Done！!!"
 
